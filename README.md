@@ -8,4 +8,10 @@ Example:- the frequency of the design is one gigahertz, so we have to make such 
 Slack:- the diffence between the arrival time and required time. 
 Example:- Tje data should be at the first flip flop should be between .5 ns to 3ns means the data can take the minimum time .5 ns and max time 3 ns.
 Let's say that the arrival time is 3.5 ns then the diffence between the min time from arrival time is called as min slack time i.e 3ns and in the same way the difference between the arrival time from max time is max slack time.
-The max slack time is known as slack 
+The max slack time is known as setup slack or setup timing and the min slack time is known as hold slack hold timing.
+Types of setup/hold analysis:-
+1. reg2reg:- it is timing path from first flip flop or launch flop to next flip flp or capture flop.
+2. in2reg:- it is timing path from input pin to launch flop .
+3. reg2out:- it is timing path from capture flop output to output pin.
+4. in2out:- it is timing path from input pin to output pin i.e. from giving input to getting the output.
+# 1st is coming in to reg to reg and 2nd, 3rd and 4th IO TIMING. 
