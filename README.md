@@ -14,4 +14,8 @@ Types of setup/hold analysis:-
 2. in2reg:- it is timing path from input pin to launch flop .
 3. reg2out:- it is timing path from capture flop output to output pin.
 4. in2out:- it is timing path from input pin to output pin i.e. from giving input to getting the output.
+5. clock getting:-it is for getting the timing path from other clock to clock of capturing flop or gate output. 
+   for getting the clock at differnt flip flop or following circuit we don't using directly instead of we using the clock getting technique that is power saving which is combination of differnt logic gates and flip flops.
+    This technique, clock getting, is useful switching the following circuit i.e. we can control wheather the output of launching flop should feed to capturing flop. 
+7. recovery/removal:- it is tin=ming path from the another logic circuit to reset of flip flop that control to when to feed the reset signal.
 # 1st is coming in to reg to reg and 2nd, 3rd and 4th IO TIMING. 
