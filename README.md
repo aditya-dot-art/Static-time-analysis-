@@ -18,15 +18,30 @@ Types of setup/hold analysis:-
 5. clock getting:-it is for getting the timing path from other clock to clock of capturing flop or gate output. 
    for getting the clock at differnt flip flop or following circuit we don't using directly instead of we using the clock getting technique that is power saving which is combination of differnt logic gates and flip flops.<img width="1429" height="533" alt="Screenshot 2025-11-14 234957" src="https://github.com/user-attachments/assets/2a901960-d02d-4726-b2b9-f04aff18a507" />
 <img width="1122" height="465" alt="Screenshot 2025-11-16 100419" src="https://github.com/user-attachments/assets/aa2e0065-5418-464d-9405-5ee1dfdf8577" />
-
-    This technique, clock getting, is useful switching the following circuit i.e. we can control wheather the output of launching flop should feed to capturing flop. 
+ This technique, clock getting, is useful switching the following circuit i.e. we can control wheather the output of launching flop should feed to capturing flop. 
 6. recovery/removal:- it is timing path from the another logic circuit to reset of flip flop that control when to feed the reset signal. 
 7. data-to-data:- this check is used to save the power in the way of reset signal which is dependant of 'a' signal from combinational logic and 'ctrl signal' whci control the and gate output i.e. if the ctrl signal is one then the 'a' data will come out so that the capture flop can reset or set itsself.
    Also 'a' and 'ctrl signal' should be synchronous, for this we have to tuned in that way that there a relation between 'a' and 'ctrl signal'. This can be get by the making the end point of some circuit which  can be get by data-to-data check. By this way we can make a both signal as end point and there are multiple timing path coming to both pin, one from the launch flop and one from other flop that is use for the control the clock of capture flop. Data-to-data check is diffent from other check as it as both pin is a data signal and all other except clock getting is dependant on flop's end point but in this both check is input of a gate. 
 8. Latch timing:- We have seen that flip flop will tranparent when there edge triggerring but there are another circuitry which is dependant of level trigger not on edge trigger.
    If we want to make the timing path between flop to latch, which is not made before, for this latch borrow some time from level timing that is called as time borrowing so there are two timing path comes into picture, one from lauch flop to latch in which the time borrowing actually happened and one from the latch to flip flop in which the latch give some time to flip flop. <img width="1118" height="487" alt="Screenshot 2025-11-16 102953" src="https://github.com/user-attachments/assets/81e54524-10e2-4cf3-95f3-68613ae80958" />
 <img width="1157" height="447" alt="Screenshot 2025-11-16 104039" src="https://github.com/user-attachments/assets/3d32923f-7459-43f0-a735-b8f9ae6c9cdd" />
-
 ## 1st is coming in to reg to reg and 2nd, 3rd and 4th IO TIMING. 
-### slew/transition analysis:-
+# slew/transition analysis:-
 this ensure that the slew or transition is covering between the min or max value. So there is any requirement of slew is done by slew or transiton analysis.This is important so that if the slew is shrf then it can increae the short circuit and if it large then it can increase the more opening time for the gate is turned on . 
+It is divided into two parts:-
+ 1. data skew:- it is determine by the taking the point on data path and checking the slew wheather it is min or max. this specify the the data transition.
+<img width="1431" height="565" alt="Screenshot 2025-11-16 115825" src="https://github.com/user-attachments/assets/8c4cbc14-c853-4d5b-83b2-982c6c517462" />
+ 2. clock skew:- it is very complicated and important for any circuit as it decide when the data will loaded. It can calculate with the reference of the min or max value by tap on the path of clock.
+<img width="1447" height="571" alt="Screenshot 2025-11-16 115847" src="https://github.com/user-attachments/assets/1e6d99b3-6765-4ee2-8ecc-f5b5d1a22358" />
+in both skew clock skew is complicated as data is not switch often as compared to clock which switch at equal time interval.
+
+# Load analysis 
+in this analysis we analysis that what is the data should loaded at every node.
+it is also of two types:
+1. fanout
+2. capacitance
+
+# Clock analysis
+1. skew analysis:- in this latency matching is done in flip flop. If the skew doesn't matches then it affect first set of categories i.e. static/hold  analysis
+  <img width="1436" height="579" alt="Screenshot 2025-11-16 115933" src="https://github.com/user-attachments/assets/30dafc7f-a883-4ebb-b4d8-8a0185c8ad8a" />
+2. pulse analysis:- we expect that same clock pulse will be provided at avery flip flop or latches . So in this check that till what point it can allow the clock pulse in with degrade the clock pulse.  
