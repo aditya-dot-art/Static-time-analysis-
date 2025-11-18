@@ -103,4 +103,26 @@ Zero Slack ($\text{Slack} = 0$): Indicates that the timing constraint is exactly
 
 Negative Slack ($\text{Slack} < 0$): Indicates a timing violation, meaning the path is too slow (Setup violation) or too fast (Hold violation) and the circuit may not function reliably at the specified clock frequency.
 
-AAT is expexted to less than the RAT at every design for meeting the design expectation. 
+AAT is expexted to less than the RAT at every design for meeting the design expectation.
+
+We calculate the slack by taking the worst timeing constraint.Also in this combinational circuit, toward the input side, we can't do anything it is directly connected to source but in case if flip flop, we can take a flip flop with lower delay so in input side the slack become positive
+
+<img width="1287" height="502" alt="Screenshot 2025-11-18 151518" src="https://github.com/user-attachments/assets/d5b016f6-8433-40cc-8452-a74fc63d3d15" />
+
+In this image we can clearly see that the there are two way to reach at 'd' point by taking the worst path delay and low path delay. As earlier we have the worst path so the slack came to be negative but in this situation if we take less time delay path then the slack shuold come positive.
+
+Also in the real world the lower time delay path should be taken.Then by taking the best path then at 'd' point the arrival time come out to be 6.9 not 7.8.
+
+So the worst case path is also called as Graph Based Analysis(GBA) and best case path is caleed as Path Based Analysis(PBA). 
+
+By taking the arrival time 6.9 at 'd' point, at output pin the slack become 7.0.
+
+Now take this into another level by taking pin node convection with same circuitry by making the input and output of all gates to nodes like for 'a' input is like 'a1' and output is 'a2' and for the time delay of gate a shown by 2 by making the vertices between a1 to a2.
+
+The detailed timing analysis with the help of pin node convection in which we represent the time delay, arrival time, required arrival time and slack.
+
+With this slack timing graph we can check where we have to make changes for nwgative slack that can be done easily as shown in figure: 
+<img width="1303" height="473" alt="Screenshot 2025-11-18 160156" src="https://github.com/user-attachments/assets/069f7f5b-33f2-4f2d-992d-be9e41b0f12c" />
+
+---
+
