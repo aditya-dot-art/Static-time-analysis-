@@ -126,3 +126,10 @@ With this slack timing graph we can check where we have to make changes for nwga
 
 ---
 
+Now ;et's forward to next level i.e. open the launch and the capture flop and see the trnasistor level of circuitry.
+
+Firstly we have to see the give justification why we have doing that. 
+
+let's take the clock frequency is 1 GHz and time period is 1 ns under scenerio setup max path analysis tells us that the combination delay or delay from the clock generation to D  input of capture flop should be less than clock period.
+
+let's take the combinational delay is θ and the time period is T then θ<T.
