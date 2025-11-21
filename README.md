@@ -126,10 +126,46 @@ With this slack timing graph we can check where we have to make changes for nwga
 
 ---
 
-Now ;et's forward to next level i.e. open the launch and the capture flop and see the trnasistor level of circuitry.
+Now let's forward to next level i.e. open the launch and the capture flop and see the trnasistor level of circuitry.
 
 Firstly we have to see the give justification why we have doing that. 
 
 let's take the clock frequency is 1 GHz and time period is 1 ns under scenerio setup max path analysis tells us that the combination delay or delay from the clock generation to D  input of capture flop should be less than clock period.
 
-let's take the combinational delay is θ and the time period is T then θ<T.
+let's take the combinational delay is θ and the time period is T then it is necessary to have less combinational delay then time period i.e. θ<T. This consideration is done without using any buffer or can be said to be ideal case means the data should be reached the capture flop before clock period T.
+
+Now by using CTS add the buffer between clock path but by adding the buffer the condition should remain unchanged i.e. θ<T but there are modifications done due addtion of buffer i.e.(θ+1+2) < (T+1+3+4) 
+
+<img width="1453" height="815" alt="Screenshot 2025-11-21 181021" src="https://github.com/user-attachments/assets/d47fc79f-2660-4ce1-943c-7a585c73b95d" />
+
+Here 1 represent the time delay of 1st buffer likewise 2 represent the time delay of 2nd buffer and so on.
+
+Lets take Δ1 = (1+2) and Δ2 = (1+3+4).
+
+Here if the clock reached to launch flop at 0ns now reached to Δ1ns same for capture flop now the clock reached by (T+Δ2)ns.
+
+Also the difference of Δ1 and Δ2 is called as skew.
+
+skew = Δ1 + Δ2,
+
+Now open up the capture flop and check about the timing constraint in it. As the D flip flop is made of 2 MUX in which one is negative latch and 2nd is positive latch.
+
+The differnce between negative and positive latch is just how we connect the clock to nmos and pmos which can be seen by the given figures
+<img width="1473" height="597" alt="Screenshot 2025-11-21 002843" src="https://github.com/user-attachments/assets/f1f7d825-734c-4e24-83a5-be6d025b67d1" />
+
+So the negative latch operates on negative level of clock and positive latch on positive level clock and the combination of both represents the flip flop.
+
+Latch is made of two transmission gates which is made of pmos pass transistor and nmos pass transistor and thesee transmission is connected with invertor. Here the value of clock decide whether the gates will work or not.
+ 
+Let's give a ideal clock, as the transition time from low to high or high to low is zero.
+
+As negative latch based on the ideal clock so for the negative level of the clock the Tr1 will be active i.e. nmos and pmos will be active and there will be direct path between the D input and output Qm so at D input what will be latch out at Qm. Now the time required from input to output is depend on  Tr1 and 2 invertor.Here the Tr3 is also active but there is no output till now then there will be don't care condition.
+
+
+<img width="1445" height="618" alt="Screenshot 2025-11-21 004354" src="https://github.com/user-attachments/assets/e15b519d-9f64-4faa-84e8-8a66125b15eb" />
+
+Now talk about the positive in which will be active at positive then the Tr2 and Tr4 will be active as from past output at Qm the Tr2 will give the same output and for Tr4 the output from the Tr1 will be act a input of Tr4 then there will be transmission between the input of Tr4 and output i.e. output is present as D. This is how we get the output.
+
+Now connect the positive and negative latch which give us a D flip flop. This flip flop is based on positive edge triggered flip flop using master slave configuration.
+<img width="1474" height="664" alt="Screenshot 2025-11-21 190929" src="https://github.com/user-attachments/assets/1b889039-3831-4300-ad84-21e4fd9d8999" />
+
