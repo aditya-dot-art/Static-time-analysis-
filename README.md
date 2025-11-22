@@ -195,6 +195,32 @@ Eye diagram:- It gets from the outside the timing analysis i.e. provided by the 
 Lets takes idealistic case for clock i.e. there is no jitter as shown below  
 <img width="1407" height="646" alt="Screenshot 2025-11-21 110051" src="https://github.com/user-attachments/assets/765dc2c6-d70c-4be3-affc-4ab879e65dde" />
 
-This is the first level of eye diagram 
+This is the first level of eye diagram.
 
- 
+Now take some realistic scenerio i.e. zeroth edge of clock signal which is suppoose to come at zeroth time point but there is variation over here due to clock path, which is very huge, the result is that at each point receive clock at different time but somewhere zeroth. 
+<img width="1282" height="640" alt="Screenshot 2025-11-21 110803" src="https://github.com/user-attachments/assets/671e266d-b81e-4ee5-beb6-7b3dc0e79b99" />
+This is the second level of eye diagram.
+
+There ia another of idealistic power supply i.e. power is constant at level but in real there is variation in power supply like voltage deop and ground bound.
+
+Now combine the eye diagram and power supply variation for realistic case 
+<img width="936" height="330" alt="Screenshot 2025-11-21 120244" src="https://github.com/user-attachments/assets/97b7338d-31ad-4b2f-9a6f-3cb5440cfbac" />
+This is the third level of eye diagram(more realistic)
+
+--- 
+
+NOISE MARGIN:- Noise margin is the safe electrical tolerance that prevents noise from corrupting logic levels. It defines how much disturbance a digital signal can survive while still being interpreted as the correct binary value.
+
+There is range of data till the electrical appliance consider that as low or high.
+
+Jitter:- The temporary variation in clock period is called as jitter
+<img width="1060" height="567" alt="Screenshot 2025-11-21 125342" src="https://github.com/user-attachments/assets/5912efe8-cffc-4182-b0ef-dd930b98850a" />
+
+If the clock period arrived before 0ns i.e. (0-Δ1) and complete after (T+Δ2) then there is increament in clock period and vice versa. so this is the temporary variation in clock period is called as jitter. 
+and this jitter is model with parameter called 'uncertainity'.
+This uncertainity is subtracted from the clock period and this is accountaibility in the timing analysis i.ie.
+    this uncertainity is represented by SU then the delay equation become
+    (θ + Δ1) < (T + Δ2) - S - SU
+    <img width="1423" height="787" alt="Screenshot 2025-11-23 011623" src="https://github.com/user-attachments/assets/2f7f1913-7ffd-4aea-9db1-6fddac851930" />
+
+That's all for setup timing analysis for single clock.
