@@ -169,3 +169,32 @@ Now talk about the positive in which will be active at positive then the Tr2 and
 Now connect the positive and negative latch which give us a D flip flop. This flip flop is based on positive edge triggered flip flop using master slave configuration.
 <img width="1474" height="664" alt="Screenshot 2025-11-21 190929" src="https://github.com/user-attachments/assets/1b889039-3831-4300-ad84-21e4fd9d8999" />
 
+here we see that the first is negative latch so the it will wait for negative or low signal for sending the input data to Qm i.e. to the invertor no. 5 that is connected to input of tansmission gate 4.
+
+So when the negative level comes then Qm get the D input and Tr2 holds the data so that when the positive level of clock come then it send it to Tr4 like this we get the output from the D input. Now again the negative level of clock will come fot this Tr3 will hold the value till again the positive level come.This is the way the input D comes out to be output Q.
+
+Set-up time:- Time before rising edge of clock that the input D become valid i.e. D input has to be stable such that Qm is sent out to Q reliably.
+
+  Input D takes time to reach Tr4 is delay of 3 of invertor and 1 transmission gate delay to become stable before rising edge of clock.
+
+  Here there are couples of things we have to consider i.e. 
+  1. Library set up time :- for the capture flop.
+  2. Clocl to Q delay:- needed by the launch flop i.e. the amount of time in which data will take time to get out of particular flop.When we look into the clock to Q delay it is said that application of clock     after that the input comes out of the flip flop.
+
+Also the D input for Tr4 i.e. D' is already at the input of Tr4 and during the positive level of clock it took time of dealy of Tr4 and the delay of invertor 6 for reaching to output i.e. Q.
+
+Hold time:- It is the time need to D input to be stable after the application of clock. In this for positive clock the Tr1 is off, so D is allowed to change after the clock edge so hold time for this will be zero.
+
+Library setup time:- Time required for the data to stablised within the capture flop
+    (θ + Δ1) < (T + Δ2) - S
+
+---
+
+## JITTER 
+Eye diagram:- It gets from the outside the timing analysis i.e. provided by the foundry.
+Lets takes idealistic case for clock i.e. there is no jitter as shown below  
+<img width="1407" height="646" alt="Screenshot 2025-11-21 110051" src="https://github.com/user-attachments/assets/765dc2c6-d70c-4be3-affc-4ab879e65dde" />
+
+This is the first level of eye diagram 
+
+ 
